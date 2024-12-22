@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navber = () => {
     const links = <>
@@ -45,10 +46,13 @@ const Navber = () => {
         </ul>
       </div>
 
-{/* <div className='navbar-end'>
+<div className='navbar-end'>
+<a className=" ">
+            <FaUserCircle
+              className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success ' /></a>
+   <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
 
-  
-{
+{/* {
         user && user?.email ?
 
 
@@ -81,15 +85,15 @@ const Navber = () => {
             <FaUserCircle
               className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success ' /></a>
 
-      }
+      } */}
 
-      {
+      {/* {
         user && user?.email ?
           <button onClick={logOut} className='btn hidden text-xl font-bold bg-blue-600 w-40 h-4'>Log-Out</button>
           :
           <Link to="/auth/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
-      }
-</div> */}
+      } */}
+</div>
 
 
     </div>

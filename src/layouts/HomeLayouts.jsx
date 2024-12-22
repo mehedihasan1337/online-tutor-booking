@@ -1,14 +1,11 @@
 import React from 'react';
-import Navber from '../components/Navber';
-import Footer from '../components/Footer';
-import { Outlet } from 'react-router-dom';
+
+import Banner from '../components/Banner';
 
 const HomeLayouts = () => {
     return (
         <div>
-            <Navber></Navber> 
-                 <Outlet></Outlet>
-            <Footer></Footer>          
+              <Banner></Banner>    
         </div>
     );
 };
