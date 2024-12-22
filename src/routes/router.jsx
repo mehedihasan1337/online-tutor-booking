@@ -5,6 +5,7 @@ import Banner from '../components/Banner';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Root from '../root/Root';
+import AddTutorials from '../pages/AddTutorials';
 
 const router =createBrowserRouter([
  {
@@ -23,6 +24,10 @@ const router =createBrowserRouter([
         {
             path:"/register",
             element:<Register></Register>
+        },
+        {
+            path:"/addTutorials",
+            element:<AddTutorials></AddTutorials>
         }
     ]
  }

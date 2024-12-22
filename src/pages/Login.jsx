@@ -1,22 +1,90 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { IoKey } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginLottieJson from '../assets/lottie/login.json'
 import Lottie from 'lottie-react';
+import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const{loginUser, setUser, loginWithGoogle }= useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [error, setError] = useState({})
+      // google login   !
+
+
+      const handleGoogleLogin = () => {
+
+        loginWithGoogle()
+            .then(result => {
+                const user = result.user
+                setUser(user)
+
+                navigate(location?.state ? location.state : "/")
+                Swal.fire({
+                    title: "Login success",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+
+
+            })
+            .catch((err) => {
+
+                setError({ ...error, login: err.code })
+
+
+
+            });
+        }
+
+    const handleLogin=e=>{
+        e.preventDefault()
+        // form data
+        const form = new FormData(e.target)
+        const email = form.get("email")
+        const password = form.get("password")
+          
+
+           loginUser(email,password)
+        .then(result => {
+            const user = result.user
+            setUser(user)
+            navigate(location?.state ? location.state : "/")
+            Swal.fire({
+                title: "Login success ",
+                text: "You clicked the button!",
+                icon: "success"
+            });
+
+
+        })
+        .catch((err) => {
+            setError({ ...error, login: err.code })
+            Swal.fire({
+                title: "Login Error",
+                text: "You clicked the button!",
+                icon: "error"
+            });
+
+        });
+    
+    }
+
+
     return (
-        <div className="hero-content justify-between flex-col lg:flex-row-reverse w-8/12 mx-auto">
+        <div className="hero-content justify-between flex-col mt-28 lg:flex-row-reverse w-8/12 mx-auto">
 <div className='w-96'>
 <Lottie animationData={loginLottieJson}></Lottie>
 </div>
             
-            <div className=" flex  font-Oswald  ">
+            <div className=" flex  font-Roboto  ">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl  rounded-none">
-            <form className="card-body ">
-                <h1 className='text-center  font-bold text-2xl pt-5 text-blue-700 '>Login your account</h1>
+            <form onSubmit={handleLogin} className="card-body ">
+                <h1 className='text-center  font-bold text-2xl pt-5 font-Oswald text-blue-700 '>Login your account</h1>
                 <hr className=' w-64 mx-auto mt-3' />
 
     
@@ -66,11 +134,11 @@ const Login = () => {
                 <div className="form-control mt-6 mb-5">
                     <button className="btn btn-primary ">Login</button>
                 </div>
-                <p className="text-center">Dont’t Have An Account ?<span className="text-red-500"><Link to="/register"> Register</Link></span></p>
+                <p className="text-center font-Roboto">Dont’t Have An Account ?<span className="text-red-500 font-Oswald"><Link to="/register"> Register</Link></span></p>
              <span className='divider'>or</span>
                 <div className=' mx-auto '>
 
-<button className='btn bg-neutral text-white'><FcGoogle />Login With Google </button>
+<button onClick={handleGoogleLogin} className='btn bg-neutral text-white font-Oswald'><FcGoogle />Login With Google </button>
 </div>
 
             </form>

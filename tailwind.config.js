@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily:{
         Oswald:["Oswald", "serif"],
+        Roboto:["Roboto", "serif"],
         
       }
     },

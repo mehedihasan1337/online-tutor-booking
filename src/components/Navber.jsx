@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navber = () => {
+
+  const { user, logOut } = useContext(AuthContext)
+
+  const handleLogOut=()=>{
+    logOut()
+    .then(()=>{
+      console.log('successful logOut')
+    })
+    .catch(error=>{
+      console.log('failed to sign out. sty her. dont leave me alone')
+    })
+  }
     const links = <>
-    <NavLink className="btn " to={"/"}>Home</NavLink>
-    {/* <NavLink className="btn" to={"/allSportsEquipment"}>All Equipment </NavLink>
-    <NavLink className="btn" to={"/addEquipment"}>Add Equipment </NavLink>
-    <NavLink className="btn" to={"/myEquipmentList"}>My Equipment List</NavLink> */}
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
+    {/* <NavLink className="font-Oswald  font-semibold text-lg" to={"/addEquipment"}>Add Equipment </NavLink> */}
+    {/* <NavLink className="font-Oswald  font-semibold text-lg" to={"/myEquipmentList"}>My Equipment List</NavLink> */}
 
   </>
 
@@ -47,12 +60,12 @@ const Navber = () => {
       </div>
 
 <div className='navbar-end'>
-<a className=" ">
+{/* <a className=" ">
             <FaUserCircle
               className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success ' /></a>
-   <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
+   <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link> */}
 
-{/* {
+{
         user && user?.email ?
 
 
@@ -64,16 +77,16 @@ const Navber = () => {
               </div>
               <div
                 tabIndex={1}
-                className="dropdown-content card  lg:w-60 sm:w-60  bg-purple-700 rounded-md text-primary-content">
+                className="dropdown-content card  lg:w-60 sm:w-60  bg-primary rounded-md text-primary-content">
                 <div className=" card p-2 ">
-                  <p className='font-bold'> Name: {user?.displayName }</p>
-                  <a className='mr-1 text-sm text-black font-bold' >{user && user.email}</a>
+                  <p className='font-bold text-white'> Name: {user?.displayName }</p>
+                  <a className='mr-1 text-sm text-white font-bold' > {user && user.email}</a>
                   
                   {
                     user && user?.email ?
-                      <button onClick={logOut} className='text-xl font-bold text-white  mb-4 w-40 h-4 mx-auto  '>Log-Out</button>
+                      <button onClick={handleLogOut} className='text-xl font-bold text-white  mb-4 w-40 h-4 mx-auto  '> <hr className='mt-2'></hr>Log-Out</button>
                       :
-                      <Link to="/auth/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4 ">Login </Link>
+                      <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4 ">Login </Link>
                   }
                 </div>
               </div>
@@ -85,14 +98,14 @@ const Navber = () => {
             <FaUserCircle
               className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success ' /></a>
 
-      } */}
+      }
 
-      {/* {
+      {
         user && user?.email ?
           <button onClick={logOut} className='btn hidden text-xl font-bold bg-blue-600 w-40 h-4'>Log-Out</button>
           :
-          <Link to="/auth/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
-      } */}
+          <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
+      }
 </div>
 
 
