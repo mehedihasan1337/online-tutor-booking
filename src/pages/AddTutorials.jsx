@@ -3,19 +3,60 @@ import useAuth from '../hooks/useAuth';
 
 import informationLottieJson from '../assets/lottie/information.json'
 import Lottie from 'lottie-react';
+import { data } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddTutorials = () => {
     const { user } = useAuth()
+
+
+    const handleAddTutor = e => {
+        e.preventDefault()
+
+        const formData = new FormData(e.target)
+        //    console.log(formData.entries())
+        const initialData = Object.fromEntries(formData.entries())
+        console.log(initialData)
+        const { price, category, ...newTutor } = initialData
+        console.log(newTutor)
+        newTutor.price = { price, category }
+        console.log(newTutor)
+
+
+        fetch(`http://localhost:5000/tutor`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newTutor)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: " success!",
+                        text: "success Add Tutorials",
+                        icon: "success"
+                    });
+                }
+            })
+
+    }
+
+
+
+
     return (
         <div className='hero-content justify-between flex-col mt-28 lg:flex-row-reverse mx-auto' >
-           
-           <div className=''>
-           <Lottie animationData={informationLottieJson}></Lottie>
-           </div>
-           
+
+            <div className=''>
+                <Lottie animationData={informationLottieJson}></Lottie>
+            </div>
+
             <div>
-            <h2 className="text-3xl font-bold mt-10 text-center font-Oswald text-gray-800">Post A Tutor Information</h2>
-                <form className="card-body">
+                <h2 className="text-3xl font-bold mt-10 text-center font-Oswald text-gray-800">Post A Tutor Information</h2>
+                <form onSubmit={handleAddTutor} className="card-body">
 
                     {/* name */}
                     <div className="form-control">
@@ -96,24 +137,24 @@ const AddTutorials = () => {
 
                     </div>
 
-                    {/* job requirements */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text font-bold text-xl">Job requirements</span>
-                        </label>
-                        <textarea
-                            type="text" name='requirements' placeholder="Put each requirements in a new line"
-                            className="textarea textarea-bordered textarea-xs w-full"></textarea>
-                    </div>
+
 
                     {/* review */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-xl">review </span>
+                            <span className="label-text font-bold text-xl"> review </span>
                         </label>
-                        <input type="text" name='review ' placeholder="review " className="input input-bordered" required />
-                    </div>
+                        <select defaultValue="0" type="text" name=' review ' className="select select-ghost input input-bordered w-full">
+                            <option disabled >0</option>
+                            <option >01</option>
+                            <option >02</option>
+                            <option >03</option>
+                            <option >04</option>
+                            <option >05</option>
 
+
+                        </select>
+                    </div>
 
 
                     {/* submit */}

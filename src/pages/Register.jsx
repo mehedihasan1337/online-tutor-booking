@@ -23,18 +23,27 @@ const Register = () => {
         const password = form.get("password")
         
      
-        if (password.length < 6) {
-            setError({ ...error, password: "Password Should be 6 characters or longer" })
-            return
-        }
-        const passwordRegex =  /^(?=.*[A-Z])(?=.*\d).{6,}$/;
-        if (!passwordRegex.test(password)) {
-            setError({ ...error, password: "At least one uppercase and one lowercase " })
-            return
-        }
+        // if (password.length < 6) {
+        //     setError({ ...error, password: "Password Should be 6 characters or longer" })
+        //     return
+        // }
+        // const passwordRegex =  /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+        // if (!passwordRegex.test(password)) {
+        //     setError({ ...error, password: "At least one uppercase and one lowercase " })
+        //     return
+        // }
 
 
         createNewUser(email,password)
+        // .then(result => {
+        //     console.log(result.user)
+    
+        //   })
+        //   .catch(error => {
+        //     console.log(error.message)
+        //   })
+    
+
         .then((result) => {
             const user = result.user
             const newUser = { name, email, photo }
