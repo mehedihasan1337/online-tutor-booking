@@ -2,9 +2,10 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { IoLanguage } from 'react-icons/io5';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const TutorCurd = ({ tutor }) => {
-    const { name, email, image, language, description, review, price } = tutor
+    const { _id,name, email, image, language, description, review, price } = tutor
         
     return (
         <div>
@@ -35,7 +36,10 @@ const TutorCurd = ({ tutor }) => {
     {language  }</p>
 
     <div className='flex '>
-    <p>{description .slice(0,80)}..<span className="  border-gray-700 font-Oswald text-green-500 p-1 rounded-lg  hover:text-blue-600  ">Details</span></p>
+    <p>{description .slice(0,80)}..<Link 
+    to={`/tutors/${_id}` } 
+    className="  border-gray-700 font-Oswald text-green-500 p-1 rounded-lg  hover:text-blue-600  "
+    >Details</Link></p>
     
     </div>
     

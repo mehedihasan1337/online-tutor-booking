@@ -6,7 +6,7 @@ const FindTutors = () => {
     const [tutors,setTutors]=useState([])
 
 useEffect(()=>{
-    fetch ('http://localhost:5000/tutor')
+    fetch ('http://localhost:5000/tutors')
       .then(res=>res.json())
       .then(data=>{
         setTutors(data)

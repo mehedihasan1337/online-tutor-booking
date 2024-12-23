@@ -8,6 +8,7 @@ import Root from '../root/Root';
 import AddTutorials from '../pages/AddTutorials';
 import FindTutors from '../pages/FindTutors';
 import MyTutorials from '../pages/MyTutorials';
+import TutorDetails from '../pages/TutorDetails';
 
 const router =createBrowserRouter([
  {
@@ -38,6 +39,11 @@ const router =createBrowserRouter([
         {
             path:"/myTutorials",
             element:<MyTutorials></MyTutorials>
+        },
+        {
+            path:"/tutors/:id",
+            element:<TutorDetails></TutorDetails>,
+            loader:({params})=> fetch(`http://localhost:5000/tutors/${params.id}`)
         },
     ]
  }

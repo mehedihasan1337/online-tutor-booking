@@ -23,7 +23,7 @@ const AddTutorials = () => {
         console.log(newTutor)
 
 
-        fetch(`http://localhost:5000/tutor`, {
+        fetch(`http://localhost:5000/tutors`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
