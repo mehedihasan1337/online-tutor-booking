@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TabCategory = () => {
+const Category = ({tutor}) => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const TabCategory = () => {
     );
 };
 
-export default TabCategory;
+export default Category;

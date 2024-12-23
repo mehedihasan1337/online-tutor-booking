@@ -5,42 +5,61 @@ import informationLottieJson from '../assets/lottie/information.json'
 import Lottie from 'lottie-react';
 import { data } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const AddTutorials = () => {
     const { user } = useAuth()
 
 
-    const handleAddTutor = e => {
+    const handleAddTutor =async e => {
         e.preventDefault()
 
-        const formData = new FormData(e.target)
-        //    console.log(formData.entries())
-        const initialData = Object.fromEntries(formData.entries())
-        console.log(initialData)
-        const { price, category, ...newTutor } = initialData
-        console.log(newTutor)
-        newTutor.price = { price, category }
+        const form = e.target
+        
+        const email = form.email.value
+        const image = form.image.value
+        const language = form.language.value
+        const price =parseFloat(form.price.value)
+        const category = form.category.value
+        const description = form.description.value
+        const review = form.review.value
+        
+        const newTutor = {name,
+             buyer:{
+                email,
+                name:user?.displayName,
+                photo:user?.photoURL 
+
+             },
+              image,
+              language,
+              price:{
+                price,
+                category,
+              },
+              description,review }
         console.log(newTutor)
 
+        
 
-        fetch(`http://localhost:5000/tutors`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newTutor)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: " success!",
-                        text: "success Add Tutorials",
-                        icon: "success"
-                    });
-                }
-            })
+
+        const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/tutors`, 
+            newTutor
+          
+        )
+        console.log(data)
+            // .then(res => res.json())
+            // .then(data => {
+            //     console.log(data)
+            //     if (data.insertedId) {
+            //         Swal.fire({
+            //             title: " success!",
+            //             text: "success Add Tutorials",
+            //             icon: "success"
+            //         });
+            //     }
+            // })
+        
 
     }
 
@@ -63,14 +82,14 @@ const AddTutorials = () => {
                         <label className="label">
                             <span className="label-text font-bold text-xl">Name</span>
                         </label>
-                        <input type="text" name='name' placeholder="name" className="input input-bordered" required />
+                        <input defaultValue={user?.displayName} disabled={true}  type="text" name='name'  className="input text-black input-bordered" required />
                     </div>
                     {/* email */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold text-xl">Email</span>
                         </label>
-                        <input defaultValue={user?.email} type="email" name='email' placeholder="email" className="input input-bordered" required />
+                        <input defaultValue={user?.email} disabled={true}  type="email" name='email' placeholder="email" className="input input-bordered" required />
                     </div>
 
                     {/* Image */}
@@ -109,9 +128,10 @@ const AddTutorials = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 items-end'>
                         <div className="form-control">
                             <label className="label">
+
                                 <span className="label-text font-bold text-xl">price</span>
                             </label>
-                            <input type="text" name='price' placeholder="price" className="input input-bordered" required />
+                            <input  type="text" name='price' placeholder="price" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">

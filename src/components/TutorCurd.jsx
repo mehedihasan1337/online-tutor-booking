@@ -5,7 +5,7 @@ import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const TutorCurd = ({ tutor }) => {
-    const { _id,name, email, image, language, description, review, price } = tutor
+    const { _id,buyer, email, image, language, description, review, price } = tutor || {}
         
     return (
         <div>
@@ -17,7 +17,7 @@ const TutorCurd = ({ tutor }) => {
                 <div className=" pr-2 py-2">
   <div className='flex justify-between '> 
     <div className='flex'>
-    <h3 className='font-semibold font-Oswald text-lg'>{name.slice(0,5)}..{""}</h3>
+    <h3 className='font-semibold font-Oswald text-lg'>{buyer.name.slice(0,5)}..{""}</h3>
     
     </div>
     <div className='flex  gap-2 md:gap-3 lg:gap-3'>
