@@ -6,6 +6,8 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Root from '../root/Root';
 import AddTutorials from '../pages/AddTutorials';
+import FindTutors from '../pages/FindTutors';
+import MyTutorials from '../pages/MyTutorials';
 
 const router =createBrowserRouter([
  {
@@ -28,7 +30,15 @@ const router =createBrowserRouter([
         {
             path:"/addTutorials",
             element:<AddTutorials></AddTutorials>
-        }
+        },
+        {
+            path:"/findTutors",
+            element:<FindTutors></FindTutors>
+        },
+        {
+            path:"/myTutorials",
+            element:<MyTutorials></MyTutorials>
+        },
     ]
  }
 ])

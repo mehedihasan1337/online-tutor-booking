@@ -91,15 +91,15 @@ const AddTutorials = () => {
                         </label>
                         <select defaultValue="Select a language" type="text" name='language' className="select select-ghost input input-bordered w-full">
                             <option disabled >Select a language</option>
-                            <option >English tutors</option>
-                            <option>Spanish tutors </option>
-                            <option> French tutors</option>
-                            <option> German tutors</option>
-                            <option> Italian tutors</option>
-                            <option> Chinese tutors</option>
-                            <option> Arabic tutors</option>
-                            <option> Japanese tutors</option>
-                            <option> Portuguese tutors</option>
+                            <option >English </option>
+                            <option>Spanish  </option>
+                            <option> French </option>
+                            <option> German </option>
+                            <option> Italian </option>
+                            <option> Chinese </option>
+                            <option> Arabic </option>
+                            <option> Japanese </option>
+                            <option> Portuguese </option>
 
                         </select>
                     </div>
@@ -144,13 +144,13 @@ const AddTutorials = () => {
                         <label className="label">
                             <span className="label-text font-bold text-xl"> review </span>
                         </label>
-                        <select defaultValue="0" type="text" name=' review ' className="select select-ghost input input-bordered w-full">
+                        <select defaultValue="0" type="text" name='review' className="select select-ghost input input-bordered w-full">
                             <option disabled >0</option>
-                            <option >01</option>
-                            <option >02</option>
-                            <option >03</option>
-                            <option >04</option>
-                            <option >05</option>
+                            <option >1</option>
+                            <option >2</option>
+                            <option >3</option>
+                            <option >4</option>
+                            <option >5</option>
 
 
                         </select>

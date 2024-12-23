@@ -18,8 +18,10 @@ const Navber = () => {
   }
     const links = <>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors"}>Find tutors </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
-    {/* <NavLink className="font-Oswald  font-semibold text-lg" to={"/addEquipment"}>Add Equipment </NavLink> */}
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
+    
     {/* <NavLink className="font-Oswald  font-semibold text-lg" to={"/myEquipmentList"}>My Equipment List</NavLink> */}
 
   </>
@@ -70,15 +72,15 @@ const Navber = () => {
 
 
           <div className=''>
-            <div className="dropdown dropdown-left ">
+            <div className="dropdown  dropdown-left ">
               <div tabIndex={1} className=" ">
-                <img className='rounded-full   w-12 h-12 '
+                <img  className='rounded-full   w-12 h-12 '
                   src={user?.photoURL} alt="" />
               </div>
               <div
                 tabIndex={1}
                 className="dropdown-content card  lg:w-60 sm:w-60  bg-primary rounded-md text-primary-content">
-                <div className=" card p-2 ">
+                <div className=" card p-2  ">
                   <p className='font-bold text-white'> Name: {user?.displayName }</p>
                   <a className='mr-1 text-sm text-white font-bold' > {user && user.email}</a>
                   
