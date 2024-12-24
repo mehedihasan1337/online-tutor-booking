@@ -42,7 +42,7 @@ const router =createBrowserRouter([
             element:<MyTutorials></MyTutorials>
         },
         {
-            path:"/updatedTutor",
+            path:"/updatedTutor/:id",
             element:<UpdatedTutor></UpdatedTutor>
         },
         {

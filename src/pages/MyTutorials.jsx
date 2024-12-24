@@ -97,14 +97,14 @@ const MyTutorials = () => {
                 <th><img className='w-11 rounded-full' src={tutor.image} alt="" /></th>
                 <td>{tutor.buyer.name}</td>
                 <td>{tutor.language}</td>
-                <td>{tutor.price.price} {tutor.price.category}</td>
+                <td>{tutor.Price.price} {tutor.Price.category}</td>
                 <td>{tutor.description.substring(0,15)}...</td>
                 <td>{tutor.review}</td>
                 
                 <td>
                   <div className='flex gap-1'>
                       <button onClick={()=> handleModernDelete(tutor._id)} ><MdDeleteForever className='hover:text-red-500 font-bold text-xl' /></button>
-                      <Link to={'/updatedTutor'}><GrDocumentUpdate className='hover:text-green-500 font-bold text-lg' /> </Link>
+                      <Link to={`/updatedTutor/${tutor._id}`}><GrDocumentUpdate className='hover:text-green-500 font-bold text-lg' /> </Link>
                   </div>
                 </td>
               </tr>)

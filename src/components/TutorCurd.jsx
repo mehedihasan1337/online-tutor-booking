@@ -5,7 +5,7 @@ import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const TutorCurd = ({ tutor }) => {
-    const { _id,buyer, email, image, language, description, review, price } = tutor || {}
+    const { _id,buyer, email, image, language, description, review, Price } = tutor || {}
         
     return (
         <div>
@@ -23,7 +23,7 @@ const TutorCurd = ({ tutor }) => {
     <div className='flex  gap-2 md:gap-3 lg:gap-3'>
     <h3 className='font-semibold font-Oswald flex items-center gap-1 text-sm '> <FaStar className='w-5 text-lg text-black' />
     {review}</h3>
-    <h3 className='font-semibold font-Oswald  text-sm '> <span className='text-black text-lg'>{price.category}</span> {price.price} </h3>
+    <h3 className='font-semibold font-Oswald  text-sm '> <span className='text-black text-lg'>{Price.category}</span> {Price.price} </h3>
     <p><MdOutlineFavoriteBorder className='text-black hover:text-red-500' />
     </p>
     </div>
