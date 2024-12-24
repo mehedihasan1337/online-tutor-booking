@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 
 const AddTutorials = () => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const { user } = useAuth()
 
 
@@ -23,10 +23,10 @@ const AddTutorials = () => {
         const price = parseFloat(form.price.value)
         const category = form.category.value
         const description = form.description.value
-        const review = form.review.value
+        // const review = form.review.value
 
         const newTutor = {
-            
+
             buyer: {
                 email,
                 name: user?.displayName,
@@ -40,34 +40,34 @@ const AddTutorials = () => {
                 category,
             },
             description,
-             review:0
+            review: 0
         }
         console.log(newTutor)
 
 
- try{
-    await axios.post(`${import.meta.env.VITE_API_URL}/tutors`,
-        newTutor
+        try {
+            await axios.post(`${import.meta.env.VITE_API_URL}/tutors`,
+                newTutor
 
-    )
-    form.reset()
-    Swal.fire({
-                    title: " success!",
-                    text: "success Add Tutorials",
-                    icon: "success"
-                });
-                navigate('/myTutorials')
- }catch(err){
-    Swal.fire({
-        title: " Error!",
-        text: "Something went Wrong!!",
-        icon: "error"
-    });
- console.log(err)
- }
+            )
+            form.reset()
+            Swal.fire({
+                title: " success!",
+                text: "success Add Tutorials",
+                icon: "success"
+            });
+            navigate('/myTutorials')
+        } catch (err) {
+            Swal.fire({
+                title: " Error!",
+                text: "Something went Wrong!!",
+                icon: "error"
+            });
+            console.log(err)
+        }
 
-       
-       
+
+
         // .then(res => res.json())
         // .then(data => {
         //     console.log(data)
