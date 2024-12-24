@@ -18,7 +18,7 @@ const Navber = () => {
   }
     const links = <>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors"}>Find tutors </NavLink>
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
     

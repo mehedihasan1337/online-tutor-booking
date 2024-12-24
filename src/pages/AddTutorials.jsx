@@ -3,63 +3,83 @@ import useAuth from '../hooks/useAuth';
 
 import informationLottieJson from '../assets/lottie/information.json'
 import Lottie from 'lottie-react';
-import { data } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
 const AddTutorials = () => {
+    const navigate=useNavigate()
     const { user } = useAuth()
 
 
-    const handleAddTutor =async e => {
+    const handleAddTutor = async e => {
         e.preventDefault()
 
         const form = e.target
-        
+
         const email = form.email.value
         const image = form.image.value
         const language = form.language.value
-        const price =parseFloat(form.price.value)
+        const price = parseFloat(form.price.value)
         const category = form.category.value
         const description = form.description.value
-        const review = form.review.value
-        
-        const newTutor = {name,
-             buyer:{
-                email,
-                name:user?.displayName,
-                photo:user?.photoURL 
+        // const review = form.review.value
 
-             },
-              image,
-              language,
-              price:{
+        const newTutor = {
+            name,
+            buyer: {
+                email,
+                name: user?.displayName,
+                photo: user?.photoURL
+
+            },
+            image,
+            language,
+            price: {
                 price,
                 category,
-              },
-              description,review }
+            },
+            description,
+             review:0
+        }
         console.log(newTutor)
 
-        
 
+ try{
+    await axios.post(`${import.meta.env.VITE_API_URL}/tutors`,
+        newTutor
 
-        const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/tutors`, 
-            newTutor
-          
-        )
-        console.log(data)
-            // .then(res => res.json())
-            // .then(data => {
-            //     console.log(data)
-            //     if (data.insertedId) {
-            //         Swal.fire({
-            //             title: " success!",
-            //             text: "success Add Tutorials",
-            //             icon: "success"
-            //         });
-            //     }
-            // })
-        
+    )
+    form.reset()
+    Swal.fire({
+                    title: " success!",
+                    text: "success Add Tutorials",
+                    icon: "success"
+                });
+                navigate('/myTutorials')
+ }catch(err){
+    Swal.fire({
+        title: " Error!",
+        text: "Something went Wrong!!",
+        icon: "error"
+    });
+ console.log(err)
+ }
+
+       
+       
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data)
+        //     if (data.insertedId) {
+        //         Swal.fire({
+        //             title: " success!",
+        //             text: "success Add Tutorials",
+        //             icon: "success"
+        //         });
+        //     }
+        // })
+
 
     }
 
@@ -82,14 +102,14 @@ const AddTutorials = () => {
                         <label className="label">
                             <span className="label-text font-bold text-xl">Name</span>
                         </label>
-                        <input defaultValue={user?.displayName} disabled={true}  type="text" name='name'  className="input text-black input-bordered" required />
+                        <input defaultValue={user?.displayName} disabled={true} type="text" name='name' className="input text-black input-bordered" required />
                     </div>
                     {/* email */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold text-xl">Email</span>
                         </label>
-                        <input defaultValue={user?.email} disabled={true}  type="email" name='email' placeholder="email" className="input input-bordered" required />
+                        <input defaultValue={user?.email} disabled={true} type="email" name='email' placeholder="email" className="input input-bordered" required />
                     </div>
 
                     {/* Image */}
@@ -131,7 +151,7 @@ const AddTutorials = () => {
 
                                 <span className="label-text font-bold text-xl">price</span>
                             </label>
-                            <input  type="text" name='price' placeholder="price" className="input input-bordered" required />
+                            <input type="text" name='price' placeholder="price" className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">
@@ -159,7 +179,7 @@ const AddTutorials = () => {
 
 
 
-                    {/* review */}
+                    {/* review
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold text-xl"> review </span>
@@ -174,7 +194,7 @@ const AddTutorials = () => {
 
 
                         </select>
-                    </div>
+                    </div> */}
 
 
                     {/* submit */}

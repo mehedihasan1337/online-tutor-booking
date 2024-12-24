@@ -33,7 +33,7 @@ const router =createBrowserRouter([
             element:<AddTutorials></AddTutorials>
         },
         {
-            path:"/findTutors",
+            path:"/findTutors/:language",
             element:<FindTutors></FindTutors>
         },
         {

@@ -6,26 +6,50 @@ import axios from 'axios';
 
 const FindTutors = () => {
     const [tutors,setTutors]=useState([])
+    const [filterTutor,setFilterTutor]=useState([])
+    const [currentLanguage ,setCurrentLanguage]=useState('')
+  
+    useEffect(()=>{
+        fetchAllTutors()
+    },[])
+    const fetchAllTutors= async()=>{
+        const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/tutors`)
+           
+        setTutors(data)
+        setFilterTutor(data)
+    }
+  
+    const handleLanguages= (language)=>{
+          setCurrentLanguage(language)
+          const newData=tutors.filter(tutor =>tutor.language=== language)
+          setFilterTutor(newData)
+    }
+    
+    const languages = [
+      "English",
+      "Spanish",
+      "French",
+      "German",
+      "Italian",
+      "Chinese",
+      "Arabic",
+      "Japanese",
+      "Portuguese"
+    ];
 
-useEffect(()=>{
-    fetchAllTutors()
-},[])
-const fetchAllTutors= async()=>{
-    const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/tutors`)
-       
-    setTutors(data)
-}
 
 
     return (
         
         <div className='mt-10'>
-               
-               <div className='container px-6 py-10 mx-auto flex flex-col justify-between'>
-      <div>
-        <div className='flex flex-col md:flex-row justify-center items-center gap-5 '>
+
+
+
+
+<div className='flex font-Roboto flex-col md:flex-row justify-center items-center gap-5 '>
         
-          <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+
+          <div className='flex p-1 font-Roboto overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
             <input
               className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
               type='text'
@@ -41,12 +65,12 @@ const fetchAllTutors= async()=>{
             </button>
           </div>
 
-          <div>
+          <div className="font-Roboto">
             <select
               name='category'
               id='category'
             //   onChange={e => setSort(e.target.value)}
-              className='border p-4 rounded-md'
+              className='border font-Roboto p-4 rounded-md'
             //   value={sort}
             >
               <option value=''>Sort By Deadline</option>
@@ -58,24 +82,40 @@ const fetchAllTutors= async()=>{
             Reset
           </button> */}
         </div>
-        <div className='grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-          {/* {jobs.map(job => (
-            <JobCard key={job._id} job={job} />
-          ))} */}
-        </div>
-      </div>
-    </div>
 
 
 
+
+
+
+
+
+
+
+
+<div className='grid grid-cols-1 mt-20 md:grid-cols-2 gap-2 w-8/12 mx-auto lg:grid-cols-3 items-center '>
+           
+           
+           {languages.map((language, index) => (
+  <button onClick={()=>{handleLanguages(language)}} key={index} className={`border ${language===currentLanguage ? "border-green-500":"border-gray-500"} hover:bg-green-300 font-Roboto text-xl w-7/12 p-3`}>
+    {language}
+  </button>
+))}
+              
+              
 
             
+          </div > 
+               
             
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>
-                {
-                    tutors.map(tutor=> <TutorCurd key={tutor._id} tutor={tutor}></TutorCurd>)
-                }
+        <div className="mt-20">
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+              {filterTutor
+                .map(tutor => (
+                  <TutorCurd key={tutor._id} tutor={tutor}></TutorCurd>
+                ))}
             </div>
+        </div>
         </div>
     );
 };
