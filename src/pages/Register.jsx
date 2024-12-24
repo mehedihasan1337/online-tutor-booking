@@ -50,13 +50,13 @@ const Register = () => {
             setUser(user)
             navigate(location?.state ? location.state : "/")
 
-            // fetch('https://sports-store-server-ten.vercel.app/users', {
-            //     method: 'POST',
-            //     headers: {
-            //         'content-type': 'application/json'
-            //     },
-            //     body: JSON.stringify(newUser)
-            // })
+            fetch('https://sports-store-server-ten.vercel.app/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
@@ -67,7 +67,7 @@ const Register = () => {
                         });
                     }
                 })
-            updateUserProfile({ displayName: name, photoURL: photo })
+                updateUserProfile({ displayName: name, photoURL: photo })
                 .then(() => {
                     navigate("/")
                 }).catch(err=>{

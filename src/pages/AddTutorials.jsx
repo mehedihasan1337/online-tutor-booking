@@ -23,10 +23,10 @@ const AddTutorials = () => {
         const price = parseFloat(form.price.value)
         const category = form.category.value
         const description = form.description.value
-        // const review = form.review.value
+        const review = form.review.value
 
         const newTutor = {
-            name,
+            
             buyer: {
                 email,
                 name: user?.displayName,
