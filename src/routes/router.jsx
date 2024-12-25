@@ -48,11 +48,11 @@ const router =createBrowserRouter([
         {
             path:"/tutors/:id",
             element:<TutorDetails></TutorDetails>,
-            loader:({params})=> fetch(`http://localhost:5000/tutors/${params.id}`)
+           
         },
     ]
  }
-])
+])  
 
 
 export default router;

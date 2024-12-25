@@ -31,7 +31,7 @@ const UpdatedTutor = () => {
         const price = parseFloat(form.price.value)
         const category = form.category.value
         const description = form.description.value
-        const review = form.review.value
+        // const review = form.review.value
 
         const newTutor = {
 
@@ -48,7 +48,7 @@ const UpdatedTutor = () => {
                 category,
             },
             description,
-            review
+            review:tutor.review
         }
         console.log(newTutor)
 
@@ -72,7 +72,7 @@ const UpdatedTutor = () => {
                 icon: "error"
             });
             console.log(err)
-        }
+        }   
 
 
 
@@ -179,27 +179,7 @@ const UpdatedTutor = () => {
                 </div>
 
 
-     {/* review */}
-     {
-        tutor.review && (
-            <div className="form-control">
-                        <label className="label">
-                            <span className="label-text font-bold text-xl"> review </span>
-                        </label>
-                        <select defaultValue={tutor.review} disabled={true} type="text" name='review' className="select select-ghost input input-bordered w-full">
-                            
-                            <option >1</option>
-                            <option >2</option>
-                            <option >3</option>
-                            <option >4</option>
-                            <option >5</option>
-
-
-                        </select>
-                    </div> 
-        )
-     }
-             
+        
 
 
                 {/* submit */}

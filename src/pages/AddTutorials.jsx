@@ -23,7 +23,7 @@ const AddTutorials = () => {
         const price = parseFloat(form.price.value)
         const category = form.category.value
         const description = form.description.value
-        const review = form.review.value
+        // const review = form.review.value
 
         const newTutor = {
 
@@ -40,7 +40,7 @@ const AddTutorials = () => {
                 category,
             },
             description,
-            review
+            review:0,
         }
         console.log(newTutor)
 
@@ -179,7 +179,7 @@ const AddTutorials = () => {
 
 
 
-                     {/* review */}
+                     {/* review
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold text-xl"> review </span>
@@ -194,7 +194,7 @@ const AddTutorials = () => {
 
 
                         </select>
-                    </div> 
+                    </div>  */}
 
 
                     {/* submit */}
