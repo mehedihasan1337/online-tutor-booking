@@ -1,14 +1,21 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+
+  const links = <>
+  <NavLink className="font-Roboto font-semibold text-lg" to={"/"}>Home</NavLink>
+  <NavLink className="font-Roboto font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
+  <NavLink className="font-Roboto font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
+  <NavLink className="font-Roboto font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
+  <NavLink className="font-Roboto  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutor</NavLink>
+
+</>
     return (
         <div className='mt-96'>
          <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
-  <nav className="grid grid-flow-col gap-4">
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
+  <nav className="grid lg:grid-flow-col md:grid-flow-col   gap-4">
+  {links}
   </nav>
   <nav>
     <div className="grid grid-flow-col gap-4">
@@ -48,7 +55,7 @@ const Footer = () => {
     </div>
   </nav>
   <aside>
-    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+    <p>Copyright © {new Date().getFullYear()} - Online Tutor Booking Platform</p>
   </aside>
 </footer>
         </div>
