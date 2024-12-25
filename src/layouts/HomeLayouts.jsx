@@ -3,11 +3,13 @@ import React from 'react';
 import Banner from '../components/Banner';
 
 import LanguageCategory from '../components/LanguageCategory';
+import Stats from '../components/Stats';
 
 const HomeLayouts = () => {
     return (
         <div>
-              <Banner></Banner>    
+              <Banner></Banner> 
+              <Stats></Stats>   
               <LanguageCategory></LanguageCategory>
         </div>
     );
