@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
 import { FaStar } from 'react-icons/fa';
@@ -12,6 +12,7 @@ const TutorDetails = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams()
     const [tutor, setTutor] = useState({})
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchTutorData()
@@ -27,7 +28,7 @@ const TutorDetails = () => {
 
   // Handle form submit
   const handleSubmit = async e=> {
-  
+       const email= user?.email
 
     // 0. Check bid permissions validation
     if (user?.email === buyer?.email)
@@ -46,21 +47,17 @@ const TutorDetails = () => {
       language,
       
       buyer: buyer?.email,
-      user: user?.email
+      email,
+      review
     }
     console.log(bookData)
        
     try {
-        // 1. make a post request
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_API_URL}/myBook`,
-          bookData
-        )
         
-        // 3. Show toast and navigate
-        toast.success('Bid Successful!!!')
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/books`,bookData)
+        toast.success('Book Successful!!!')
         console.log(data)
-        // navigate('/my-bids')
+        navigate('/MyBookedTutor')
       } catch (err) {
         console.log(err)
         toast.error(err?.response?.data)
