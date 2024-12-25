@@ -22,7 +22,7 @@ const Navber = () => {
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
     
-    {/* <NavLink className="font-Oswald  font-semibold text-lg" to={"/myEquipmentList"}>My Equipment List</NavLink> */}
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutor</NavLink>
 
   </>
 
@@ -74,7 +74,7 @@ const Navber = () => {
           <div className=''>
             <div className="dropdown  dropdown-left ">
               <div tabIndex={1} className=" ">
-                <img  className='rounded-full   w-12 h-12 '
+                <img referrerPolicy='no-referrer' className='rounded-full   w-12 h-12 '
                   src={user?.photoURL} alt="" />
               </div>
               <div

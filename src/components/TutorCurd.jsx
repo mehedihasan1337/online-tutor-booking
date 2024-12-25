@@ -11,7 +11,7 @@ const TutorCurd = ({ tutor }) => {
         <div>
             <div className='flex border hover:shadow-2xl'>
                 <div className='w-4/12 '>
-                       <img className='w-full h-full' src={image} alt="" />
+                       <img referrerPolicy='no-referrer' className='w-full h-full' src={image} alt="" />
                 </div>
                 <div className='w-8/12 pl-4 pr-2'>
                 <div className=" pr-2 py-2">

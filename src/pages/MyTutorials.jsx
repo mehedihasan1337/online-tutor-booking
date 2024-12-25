@@ -94,7 +94,7 @@ const MyTutorials = () => {
              {
               tutors.map(tutor=> <tr key={tutor._id}>
                
-                <th><img className='w-11 rounded-full' src={tutor.image} alt="" /></th>
+                <th><img referrerPolicy='no-referrer' className='w-11 rounded-full' src={tutor.image} alt="" /></th>
                 <td>{tutor.buyer.name}</td>
                 <td>{tutor.language}</td>
                 <td>{tutor.Price.price} {tutor.Price.category}</td>

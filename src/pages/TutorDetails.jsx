@@ -6,6 +6,7 @@ import { FaStar } from 'react-icons/fa';
 import { MdEmail, MdOutlineFavoriteBorder, MdOutlinePriceChange } from 'react-icons/md';
 import { IoLanguage } from 'react-icons/io5';
 import { GoArrowLeft } from 'react-icons/go';
+import toast from 'react-hot-toast';
 
 const TutorDetails = () => {
     const { user } = useContext(AuthContext)
@@ -22,6 +23,55 @@ const TutorDetails = () => {
 
     }
     const { _id, buyer, image, language, description, review, Price } = tutor || {}
+
+
+  // Handle form submit
+  const handleSubmit = async e=> {
+  
+
+    // 0. Check bid permissions validation
+    if (user?.email === buyer?.email)
+      return toast.error('Action not permitted!')
+
+  
+
+    const bookData = {
+      
+      name:buyer?.name,
+        Price:Price?.price,
+        PriceCategory:Price?.category,
+      
+      jobId:_id,
+      image,
+      language,
+      
+      buyer: buyer?.email,
+      user: user?.email
+    }
+    console.log(bookData)
+       
+    try {
+        // 1. make a post request
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_API_URL}/myBook`,
+          bookData
+        )
+        
+        // 3. Show toast and navigate
+        toast.success('Bid Successful!!!')
+        console.log(data)
+        // navigate('/my-bids')
+      } catch (err) {
+        console.log(err)
+        toast.error(err?.response?.data)
+      }
+    }
+
+
+
+
+
+
 
 
     return (
@@ -45,7 +95,7 @@ const TutorDetails = () => {
                     </div>
                     <hr className='w-8/12  mx-auto' />
                     <div className='size-5/12 mx-auto mt-4'>
-                        <img className='w-full h-full' src={image} alt="" />
+                        <img className='w-full h-full'referrerPolicy='no-referrer'  src={image} alt="" />
                     </div>
                     <div className=' pl-10 pr-2'>
                         <div className=" pr-2 py-2">
@@ -63,7 +113,7 @@ const TutorDetails = () => {
                                  <h2 className='font-Oswald font-bold text-xl text-green-500'>Description</h2>
                                 <p className='text-lg font-semibold'>{description}</p>
 
-                                       <button className='btn'>Book </button>
+                                       <button onClick={handleSubmit} className='btn'>Book </button>
                                <div className='flex justify-end '>
                                <Link to={"/findTutors/language"} className=" flex border p-1 rounded-lg bg-green-500 font-Roboto text-black font-bold hover:bg-blue-600 hover:text-white hover:p-2  "> <GoArrowLeft className="text-2xl"/>Go to category</Link>
                             

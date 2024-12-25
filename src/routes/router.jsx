@@ -10,6 +10,8 @@ import FindTutors from '../pages/FindTutors';
 import MyTutorials from '../pages/MyTutorials';
 import TutorDetails from '../pages/TutorDetails';
 import UpdatedTutor from '../pages/UpdatedTutor';
+import MyBookedTutor from '../pages/MyBookedTutor';
+import PrivateRoute from './PrivateRoute';
 
 const router =createBrowserRouter([
  {
@@ -31,7 +33,9 @@ const router =createBrowserRouter([
         },
         {
             path:"/addTutorials",
-            element:<AddTutorials></AddTutorials>
+            element:<PrivateRoute>
+                <AddTutorials></AddTutorials>
+            </PrivateRoute>
         },
         {
             path:"/findTutors/:language",
@@ -39,7 +43,9 @@ const router =createBrowserRouter([
         },
         {
             path:"/myTutorials",
-            element:<MyTutorials></MyTutorials>
+            element:<PrivateRoute>
+                <MyTutorials></MyTutorials>
+            </PrivateRoute>
         },
         {
             path:"/updatedTutor/:id",
@@ -47,7 +53,16 @@ const router =createBrowserRouter([
         },
         {
             path:"/tutors/:id",
-            element:<TutorDetails></TutorDetails>,
+            element:<PrivateRoute>
+                <TutorDetails></TutorDetails>
+            </PrivateRoute>,
+           
+        },
+        {
+            path:"/MyBookedTutor",
+            element:<PrivateRoute>
+                <MyBookedTutor></MyBookedTutor>
+            </PrivateRoute>,
            
         },
     ]
