@@ -3,8 +3,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { data, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axiosSecureUse from '../hooks/axiosSecureUse';
 
 const UpdatedTutor = () => {
+    const axiosSecure=axiosSecureUse()
     const navigate = useNavigate()
     const {user} = useContext(AuthContext)
     const{id}=useParams()
@@ -50,11 +52,11 @@ const UpdatedTutor = () => {
             description,
             review
         }
-        console.log(newTutor)
+        // console.log(newTutor)
 
 
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL}/update-tutor/${id}`,
+            await axiosSecure.put(`/update-tutor/${id}`,
                 newTutor
 
             )
@@ -71,7 +73,7 @@ const UpdatedTutor = () => {
                 text: "Something went Wrong!!",
                 icon: "error"
             });
-            console.log(err)
+            // console.log(err)
         }   
 
 

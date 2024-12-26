@@ -42,7 +42,7 @@ const Register = () => {
             setUser(user)
             navigate(location?.state ? location.state : "/")
 
-            fetch('http://localhost:5000//users', {
+            fetch('https://online-tutor-booking-platform-server-liard.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -63,18 +63,18 @@ const Register = () => {
                 .then(() => {
                     navigate("/")
                 }).catch(err=>{
-                    console.log(err)
+                    // console.log(err)
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log(errorCode, errorMessage)
+                    // console.log(errorCode, errorMessage)
                 });
     
         })
     }
     return (
-        <div className="hero-content font-Roboto justify-between flex-col lg:flex-row-reverse w-8/12 mx-auto">
+        <div className="hero-content dark:text-black font-Roboto justify-between flex-col lg:flex-row-reverse w-8/12 mx-auto">
         <div className='w-96'>
         <Lottie animationData={registerLottieJson}></Lottie>
         </div>

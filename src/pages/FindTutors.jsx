@@ -81,7 +81,7 @@ const FindTutors = () => {
               name='category'
               id='category'
               onChange={e => setSort(e.target.value)}
-              className='border font-Roboto p-4 rounded-md'
+              className='border dark:text-black dark:bg-slate-300 font-Roboto p-4 rounded-md'
              
             >
               <option value=''>Sort By Price</option>
@@ -106,7 +106,7 @@ const FindTutors = () => {
            
            
            {languages.map((language, index) => (
-  <button onClick={()=>{handleLanguages(language)}} key={index} className={`border ${language===currentLanguage ? "border-green-500":"border-gray-500"} hover:bg-green-300 font-Roboto text-xl w-7/12 p-3`}>
+  <button onClick={()=>{handleLanguages(language)}} key={index} className={`border ${language===currentLanguage ? "border-green-500":"border-gray-500"} hover:bg-green-300 dark:hover:text-black font-Roboto text-xl w-7/12 p-3`}>
     {language}
   </button>
 ))}

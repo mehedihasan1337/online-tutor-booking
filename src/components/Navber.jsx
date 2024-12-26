@@ -10,10 +10,10 @@ const Navber = () => {
   const handleLogOut=()=>{
     logOut()
     .then(()=>{
-      console.log('successful logOut')
+      // console.log('successful logOut')
     })
     .catch(error=>{
-      console.log('failed to sign out. sty her. dont leave me alone')
+      // console.log('failed to sign out. sty her. dont leave me alone')
     })
   }
     const links = <>
@@ -45,13 +45,13 @@ const Navber = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            className="menu menu-sm dark:text-black dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             {links}
           </ul>
         </div>
         <div className='flex items-center'>
-          <img className='w-16 rounded-full h-16' src="https://i.ibb.co.com/gZgRQ0x/sports-brand-logo-vector-29-666870-2766.jpg" alt="" />
-        <a className=" font-bold text-3xl text-purple-700 font-Ga ">Online Tutor Booking </a>
+          <img className='w-16 rounded-full bg-cover h-16' src="https://i.ibb.co.com/YQ4dRBj/attachment-43861567.png" alt="" />
+        <a className=" font-bold lg:text-3xl md:text-2xl text-xl text-blue-500 font-Ga ">Online Tutor Booking </a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -102,7 +102,7 @@ const Navber = () => {
         user && user?.email ?
           <button onClick={logOut} className='btn hidden text-xl font-bold bg-blue-600 w-40 h-4'>Log-Out</button>
           :
-          <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
+          <Link to="/login" className="btn dark:text-white text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
       }
 </div>
 

@@ -4,16 +4,16 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
 
   const links = <>
-  <NavLink className="font-Roboto font-semibold text-lg" to={"/"}>Home</NavLink>
-  <NavLink className="font-Roboto font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
-  <NavLink className="font-Roboto font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
-  <NavLink className="font-Roboto font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
-  <NavLink className="font-Roboto  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutor</NavLink>
+  <NavLink className="font-Roboto font-semibold dark:text-white text-lg" to={"/"}>Home</NavLink>
+  <NavLink className="font-Roboto font-semibold dark:text-white  text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
+  <NavLink className="font-Roboto font-semibold dark:text-white text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
+  <NavLink className="font-Roboto font-semibold dark:text-white text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
+  <NavLink className="font-Roboto  font-semibold dark:text-white text-lg" to={"/MyBookedTutor"}>My Booked Tutor</NavLink>
 
 </>
     return (
         <div className='mt-96'>
-         <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
+         <footer className="footer footer-center bg-base-300 dark:bg-slate-400  text-base-content rounded p-10">
   <nav className="grid lg:grid-flow-col md:grid-flow-col   gap-4">
   {links}
   </nav>

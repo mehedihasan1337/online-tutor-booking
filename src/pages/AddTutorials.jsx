@@ -42,7 +42,7 @@ const AddTutorials = () => {
             description,
             review,
         }
-        console.log(newTutor)
+        // console.log(newTutor)
 
 
         try {
@@ -63,7 +63,7 @@ const AddTutorials = () => {
                 text: "Something went Wrong!!",
                 icon: "error"
             });
-            console.log(err)
+            // console.log(err)
         }
 
 
@@ -82,8 +82,8 @@ const AddTutorials = () => {
                 <Lottie animationData={informationLottieJson}></Lottie>
             </div>
 
-            <div>
-                <h2 className="text-3xl font-bold mt-10 text-center font-Oswald text-gray-800">Post A Tutor Information</h2>
+            <div className='dark:bg-slate-100 '>
+                <h2 className="text-3xl font-bold mt-10 text-center font-Oswald px-2 text-gray-800">Post A Tutor Information</h2>
                 <form onSubmit={handleAddTutor} className="card-body">
 
                     {/* name */}

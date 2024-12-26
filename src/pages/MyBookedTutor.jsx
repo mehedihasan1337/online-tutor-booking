@@ -22,7 +22,7 @@ const MyBookedTutor = () => {
            setBooks(data)
            
         }
-        console.log(books)
+        // console.log(books)
 
       
             
@@ -30,10 +30,10 @@ const MyBookedTutor = () => {
 
     return (
         <div className="overflow-x-auto">
-          <button className='border px-10 py-1 bg-blue-200 font-Oswald font-bold rounded-lg'><span className='font-semibold'>My Booked Tutor :</span> {books.length}</button>
+          <button className='border px-10 py-1 bg-blue-200 font-Oswald font-bold dark:text-black rounded-lg'><span className='font-semibold'>My Booked Tutor :</span> {books.length}</button>
         <table className="table table-xs">
           <thead>
-            <tr className='font-Oswald font-bold text-sm'>
+            <tr className='font-Oswald font-bold dark:text-gray-400 text-sm'>
               
               <th>Image</th>
               <th>Name</th>

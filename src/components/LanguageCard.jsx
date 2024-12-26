@@ -15,11 +15,11 @@ const LanguageCard = ({ logo, title,language }) => {
 
     return (
         <div
-      className="language-card flex items-center p-4 bg-white shadow-md rounded-md cursor-pointer hover:shadow-lg transition"
+      className="language-card dark:bg-slate-400  flex items-center p-4 bg-white shadow-md rounded-md cursor-pointer hover:shadow-lg transition"
       onClick={handleCardClick}
     >
-      <img src={logo} alt={`${title} logo`} className="w-12 h-12 mr-4" />
-      <span className="flex-1 text-lg font-medium">{title} tutors</span>
+      <img src={logo} alt={`${title} logo`} className="w-12 rounded-full h-12 mr-4" />
+      <span className="flex-1 text-lg text-black font-medium">{title} tutors</span>
       <FiArrowRight className="text-gray-500 text-xl" />
 
 

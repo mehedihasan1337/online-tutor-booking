@@ -29,18 +29,13 @@ const MyTutorials = () => {
   const handleDelete=async id=>{
       try{
         const {data}=await axiosSecure.delete(`/tutor/${id}`)
-        console.log(data)
-        // Swal.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success"
-        // });
+      
         toast.success('Data Deleted Successfully!!!')
         fetchAllTutors()
       }
      
       catch(err){
-      console.log(err)
+      // console.log(err)
       toast.error(err.message)
       }
 
@@ -77,10 +72,10 @@ const MyTutorials = () => {
 
     return (
         <div className="overflow-x-auto">
-          <button className='border px-10 py-1 bg-blue-200 font-Oswald font-bold rounded-lg'>{tutors.length}</button>
-        <table className="table table-xs">
+          <button className='border px-10 py-1 bg-blue-200 dark:text-black font-Oswald font-bold rounded-lg'>My Tutor: {tutors.length}</button>
+        <table className="table table-xs ">
           <thead>
-            <tr>
+            <tr className='dark:text-gray-400'>
               
               <th>Image</th>
               <th>Name</th>

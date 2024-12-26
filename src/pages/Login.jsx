@@ -28,7 +28,7 @@ const Login = () => {
     });
     navigate(from, { replace: true })
     } catch (err) {
-      console.log(err)
+    //   console.log(err)
       toast.error(err?.message)
       Swal.fire({
         title: "Login Error",
@@ -44,7 +44,7 @@ const Login = () => {
     const form = e.target
     const email = form.email.value
     const password = form.password.value
-    console.log({ email, password })
+    // console.log({ email, password })
     try {
    
       await loginUser(email, password)
@@ -55,7 +55,7 @@ const Login = () => {
     });
     navigate(from, { replace: true }) 
     } catch (err) {
-      console.log(err)
+    //   console.log(err)
       Swal.fire({
         title: "Login Error",
         text: "You clicked the button!",
@@ -68,7 +68,7 @@ const Login = () => {
 
 
     return (
-        <div className="hero-content justify-between flex-col mt-28 lg:flex-row-reverse w-8/12 mx-auto">
+        <div className="hero-content dark:text-black justify-between flex-col mt-28 lg:flex-row-reverse w-8/12 mx-auto">
 <div className='w-96'>
 <Lottie animationData={loginLottieJson}></Lottie>
 </div>

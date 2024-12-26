@@ -52,16 +52,16 @@ const TutorDetails = () => {
       email,
       review
     }
-    console.log(bookData)
+    // console.log(bookData)
        
     try {
         
         const { data } = await axiosSecure.post(`/books`,bookData)
         toast.success('Book Successful!!!')
-        console.log(data)
+        // console.log(data)
         navigate('/MyBookedTutor')
       } catch (err) {
-        console.log(err)
+        // console.log(err)
         toast.error(err?.response?.data)
       }
     }
@@ -74,10 +74,10 @@ const TutorDetails = () => {
 
 
     return (
-        <div className=' lg:w-8/12 md:w-8/12 mx-auto '>
-            <h2> Tutor Details   </h2>
+        <div className=' lg:w-8/12 md:w-8/12 mx-auto  '>
+            <h2 className='text-3xl text-center mb-3 font-Roboto'>  Tutor Details   </h2>
             <div>
-                <div className=' border hover:shadow-2xl '>
+                <div className=' border hover:shadow-2xl dark:bg-gray-300 dark:text-black '>
                     <div className='flex justify-between pt-3 lg:w-8/12 md:w-8/12 p-2  mx-auto '>
                         <div className='flex'>
                             <h3 className='font-semibold font-Oswald text-lg'>{buyer?.name}</h3>
