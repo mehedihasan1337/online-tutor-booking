@@ -7,73 +7,64 @@ import loginLottieJson from '../assets/lottie/login.json'
 import Lottie from 'lottie-react';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Login = () => {
-    const{loginUser, setUser, loginWithGoogle }= useContext(AuthContext)
+    const{loginUser, loginWithGoogle }= useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
-    const [error, setError] = useState({})
+    const from = location?.state || '/'
     
-      // google login   !
-
-
-      const handleGoogleLogin = () => {
-
-        loginWithGoogle()
-            .then(result => {
-                const user = result.user
-                setUser(user)
-
-                navigate(location?.state ? location.state : "/")
-                Swal.fire({
-                    title: "Login success",
-                    text: "You clicked the button!",
-                    icon: "success"
-                });
-
-
-            })
-            .catch((err) => {
-
-                setError({ ...error, login: err.code })
-
-
-
-            });
-        }
-
-    const handleLogin=e=>{
-        e.preventDefault()
-        // form data
-        const form = new FormData(e.target)
-        const email = form.get("email")
-        const password = form.get("password")
-          
-
-           loginUser(email,password)
-        .then(result => {
-            const user = result.user
-            setUser(user)
-            navigate(location?.state ? location.state : "/")
-            Swal.fire({
-                title: "Login success ",
-                text: "You clicked the button!",
-                icon: "success"
-            });
-
-
-        })
-        .catch((err) => {
-            setError({ ...error, login: err.code })
-            Swal.fire({
-                title: "Login Error",
-                text: "You clicked the button!",
-                icon: "error"
-            });
-
-        });
     
+    // Google Signin
+  const handleGoogleLogin = async () => {
+    try {
+    await loginWithGoogle() 
+      Swal.fire({
+        title: "Login success ",
+        text: "You clicked the button!",
+        icon: "success"
+    });
+    navigate(from, { replace: true })
+    } catch (err) {
+      console.log(err)
+      toast.error(err?.message)
+      Swal.fire({
+        title: "Login Error",
+        text: "You clicked the button!",
+        icon: "error"
+    });
     }
+  }
+
+    // Email Password Signin
+  const handleLogin = async e => {
+    e.preventDefault()
+    const form = e.target
+    const email = form.email.value
+    const password = form.password.value
+    console.log({ email, password })
+    try {
+   
+      await loginUser(email, password)
+      Swal.fire({
+        title: "Login success ",
+        text: "You clicked the button!",
+        icon: "success"
+    });
+    navigate(from, { replace: true }) 
+    } catch (err) {
+      console.log(err)
+      Swal.fire({
+        title: "Login Error",
+        text: "You clicked the button!",
+        icon: "error"
+    });
+    }
+  }
+
+  
 
 
     return (

@@ -1,9 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
+import axiosSecureUse from '../hooks/axiosSecureUse';
+
+
+
+
+
 
 const MyBookedTutor = () => {
-    
+    const axiosSecure=axiosSecureUse()
     const [books,setBooks]=useState([])
     const {user} = useContext(AuthContext)
 
@@ -12,7 +18,7 @@ const MyBookedTutor = () => {
         fetchAllBooks()
     },[user])
     const fetchAllBooks= async()=> {
-        const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/books/${user?.email}`)
+        const {data}=await axiosSecure.get(`/books/${user?.email}`,{withCredentials:true})
            setBooks(data)
            
         }

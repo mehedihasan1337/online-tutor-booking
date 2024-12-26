@@ -7,8 +7,10 @@ import { MdEmail, MdOutlineFavoriteBorder, MdOutlinePriceChange } from 'react-ic
 import { IoLanguage } from 'react-icons/io5';
 import { GoArrowLeft } from 'react-icons/go';
 import toast from 'react-hot-toast';
+import axiosSecureUse from '../hooks/axiosSecureUse';
 
 const TutorDetails = () => {
+    const axiosSecure=axiosSecureUse()
     const { user } = useContext(AuthContext)
     const { id } = useParams()
     const [tutor, setTutor] = useState({})
@@ -18,7 +20,7 @@ const TutorDetails = () => {
         fetchTutorData()
     }, [id])
     const fetchTutorData = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/tutor/${id}`)
+        const { data } = await axiosSecure.get(`/tutor/${id}`)
 
         setTutor(data)
 
@@ -54,7 +56,7 @@ const TutorDetails = () => {
        
     try {
         
-        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/books`,bookData)
+        const { data } = await axiosSecure.post(`/books`,bookData)
         toast.success('Book Successful!!!')
         console.log(data)
         navigate('/MyBookedTutor')

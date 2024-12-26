@@ -7,9 +7,10 @@ import axios from 'axios';
 
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import axiosSecureUse from '../hooks/axiosSecureUse';
 
 const MyTutorials = () => {
-
+  const axiosSecure=axiosSecureUse()
   const {user} = useContext(AuthContext)
 
   const [tutors,setTutors]=useState([])
@@ -19,7 +20,7 @@ const MyTutorials = () => {
       fetchAllTutors()
   },[user])
   const fetchAllTutors= async()=>{
-      const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/tutors/${user?.email}`)
+      const {data}=await axiosSecure.get(`/tutors/${user?.email}`)
          
       setTutors(data)
       
@@ -27,7 +28,7 @@ const MyTutorials = () => {
 // delete
   const handleDelete=async id=>{
       try{
-        const {data}=await axios.delete(`${import.meta.env.VITE_API_URL}/tutor/${id}`)
+        const {data}=await axiosSecure.delete(`/tutor/${id}`)
         console.log(data)
         // Swal.fire({
         //   title: "Deleted!",

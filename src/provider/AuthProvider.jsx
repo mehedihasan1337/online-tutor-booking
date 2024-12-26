@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import React, {  createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebsse.init';
 import { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const googleProvider= new GoogleAuthProvider()
 export const AuthContext = createContext()
@@ -28,21 +29,38 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser,updatedData)
            }
 
-    const logOut= ()=>{
+    const logOut= async()=>{
         setLoading(true)
         return signOut(auth)
     }
 
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, async currentUser => {
+          console.log('CurrentUser', currentUser)
+          if (currentUser?.email) {
             setUser(currentUser)
-            console.log('set user', currentUser)
-            setLoading(false)
+            const { data } = await axios.post(
+              `${import.meta.env.VITE_API_URL}/jwt`,
+              {
+                email: currentUser?.email,
+              },
+              { withCredentials: true }
+            )
+            console.log(data)
+         }
+         else {
+            setUser(currentUser)
+            const { data } = await axios.get(
+              `${import.meta.env.VITE_API_URL}/logout`,
+              { withCredentials: true }
+            )
+          }
+          setLoading(false)
         })
-        return()=>{
-            unsubscribe()
+        return () => {
+          return unsubscribe()
         }
-    })
+      }, []) 
 
    const authInfo={
     user,

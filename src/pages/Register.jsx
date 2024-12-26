@@ -35,27 +35,19 @@ const Register = () => {
 
 
         createNewUser(email,password)
-        // .then(result => {
-        //     console.log(result.user)
-    
-        //   })
-        //   .catch(error => {
-        //     console.log(error.message)
-        //   })
-    
-
+  
         .then((result) => {
             const user = result.user
             const newUser = { name, email, photo }
             setUser(user)
             navigate(location?.state ? location.state : "/")
 
-            fetch('https://sports-store-server-ten.vercel.app/users', {
+            fetch('http://localhost:5000//users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(newUser)
+                body: JSON.stringify(newUser) 
             })
                 .then(res => res.json())
                 .then(data => {

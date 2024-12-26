@@ -71,7 +71,7 @@ const FindTutors = () => {
               aria-label='Enter Job Title'
             />
 
-            <button className='px-1 md:px-4 py-3 text-sm font-medium text-gray-100 bg-gray-700 rounded-md hover:bg-gray-600'>
+            <button className='px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 bg-gray-700 rounded-md hover:bg-gray-600'>
               Search
             </button>
           </div>

@@ -12,6 +12,7 @@ import TutorDetails from '../pages/TutorDetails';
 import UpdatedTutor from '../pages/UpdatedTutor';
 import MyBookedTutor from '../pages/MyBookedTutor';
 import PrivateRoute from './PrivateRoute';
+import Error from '../components/Error';
 
 const router =createBrowserRouter([
  {
@@ -65,8 +66,13 @@ const router =createBrowserRouter([
             </PrivateRoute>,
            
         },
+        
     ]
- }
+ },
+ {
+    path: "*",
+    element: <Error></Error>
+  },
 ])  
 
 

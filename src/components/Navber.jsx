@@ -61,10 +61,7 @@ const Navber = () => {
       </div>
 
 <div className='navbar-end'>
-{/* <a className=" ">
-            <FaUserCircle
-              className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success ' /></a>
-   <Link to="/login" className="btn  text-xl font-bold bg-blue-600 w-40 h-4">Login </Link> */}
+
 
 {
         user && user?.email ?
