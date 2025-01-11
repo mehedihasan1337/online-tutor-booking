@@ -71,7 +71,7 @@ const MyTutorials = () => {
   
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mb-20 ">
           <button className='border px-10 py-1 bg-blue-200 dark:text-black font-Oswald font-bold rounded-lg'>My Tutor: {tutors.length}</button>
         <table className="table table-xs ">
           <thead>

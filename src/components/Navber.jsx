@@ -17,11 +17,20 @@ const Navber = () => {
     })
   }
     const links = <>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
+ {
+  user ? <>
+          <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutor</NavLink>
+  </>
+  :
+  <>
+           <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
+           <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
+  </>
+ }
 
   </>
 
@@ -45,13 +54,13 @@ const Navber = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dark:text-black dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            className="menu menu-sm   dark:text-black dropdown-content bg-base-100 rounded-box z-[1]  w-52 p-2 shadow">
             {links}
           </ul>
         </div>
         <div className='flex items-center'>
-          <img className='w-16 rounded-full bg-cover h-16' src="https://i.ibb.co.com/YQ4dRBj/attachment-43861567.png" alt="" />
-        <a className=" font-bold lg:text-3xl md:text-2xl text-xl text-blue-500 font-Ga ">Online Tutor Booking </a>
+         
+        <a className=" font-bold lg:text-3xl md:text-2xl text-sm text-blue-500 font-Ga ">Online Tutor Booking </a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -68,7 +77,7 @@ const Navber = () => {
 
 
           <div className=''>
-            <div className="dropdown  dropdown-left ">
+            <div className="dropdown  dropdown-left dropdown- ">
               <div tabIndex={1} className=" ">
                 <img referrerPolicy='no-referrer' className='rounded-full   w-12 h-12 '
                   src={user?.photoURL} alt="" />
@@ -102,7 +111,7 @@ const Navber = () => {
         user && user?.email ?
           <button onClick={logOut} className='btn hidden text-xl font-bold bg-blue-600 w-40 h-4'>Log-Out</button>
           :
-          <Link to="/login" className="btn dark:text-white text-xl font-bold bg-blue-600 w-40 h-4">Login </Link>
+          <Link to="/login" className="btn dark:text-white text-xl font-bold bg-blue-600 md:w-40 h-4">Login </Link>
       }
 </div>
 

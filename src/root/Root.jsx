@@ -18,9 +18,9 @@ const Root = () => {
   
     return (
       <div className=' bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100'>
-          <div className='w-11/12 mx-auto'>
-              <header className="p-4 float-end  ">
-        <div className='absolute mt-8 '>
+          <div className='md:w-11/12 w-full mx-auto'>
+              <header className="p-6 float-end  ">
+        <div className='absolute md:mt-7 mt-6 mr-5'>
         <button
           className=" text-3xl text-black rounded dark:text-white"
           onClick={toggleTheme}
