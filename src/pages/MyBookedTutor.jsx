@@ -29,11 +29,14 @@ const MyBookedTutor = () => {
 
 
     return (
-        <div className="overflow-x-auto">
-          <button className='border px-10 py-1 bg-blue-200 font-Oswald font-bold dark:text-black rounded-lg'><span className='font-semibold'>My Booked Tutor :</span> {books.length}</button>
-        <table className="table table-xs">
+        <div className="overflow-x-auto  ">
+          <div className='w-full h-[550px] overflow-hidden mb-10'>
+            <img  className="w-full h-full object-cover" src="https://i.ibb.co.com/BKjdP9w6/My-Booked-Tutor.png" alt="" />
+          </div>
+          <button className='mx-2  px-10 py-2 bg-blue-200 dark:bg-blue-600 font-Oswald font-bold dark:text-black rounded-lg'><span className='font-semibold'>My Booked Tutor :</span> {books.length}</button>
+        <table className="table table-xs mx-auto w-11/12">
           <thead>
-            <tr className='font-Oswald font-bold dark:text-gray-400 text-sm'>
+            <tr className='font-Oswald text-blue-500 font-bold dark:text-yellow-500 text-sm'>
               
               <th>Image</th>
               <th>Name</th>
@@ -44,7 +47,7 @@ const MyBookedTutor = () => {
           </thead>
           <tbody>
           {
-              books.map(book=> <tr className='font-Roboto font-semibold ' key={book._id}>
+              books.map(book=> <tr className='font-Roboto dark:text-white text-black font-semibold ' key={book._id}>
                
                 <th><img referrerPolicy='no-referrer' className='w-11 rounded-full' src={book.image} alt="" /></th>
                 <td>{book.name}</td>

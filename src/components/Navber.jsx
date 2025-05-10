@@ -21,9 +21,9 @@ const Navber = ({ theme, toggleTheme }) => {
   user ? <>
           <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
     <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutorials </NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutorials </NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutor</NavLink>
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutor </NavLink>
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutors </NavLink>
+    <NavLink className="font-Oswald  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutors</NavLink>
   </>
   :
   <>
@@ -35,7 +35,7 @@ const Navber = ({ theme, toggleTheme }) => {
   </>
 
   return (
-    <div className="navbar fixed z-10 opacity-80   bg-base-100 shadow-xl  ">
+    <div className="navbar fixed z-10 opacity-80   bg-base-100 dark:bg-black shadow-xl  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +60,7 @@ const Navber = ({ theme, toggleTheme }) => {
         </div>
         <div className='flex items-center'>
          
-        <a className=" font-bold lg:text-3xl md:text-2xl text-sm text-blue-500 font-Ga ">Online Tutor Booking </a>
+        <a className=" font-bold lg:text-3xl md:text-2xl text-sm text-blue-800 dark:text-yellow-400 font-Ga ">Online Tutor Booking </a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
