@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-
-const Navber = () => {
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+const Navber = ({ theme, toggleTheme }) => {
 
   const { user, logOut } = useContext(AuthContext)
 
@@ -35,7 +35,7 @@ const Navber = () => {
   </>
 
   return (
-    <div className="navbar ">
+    <div className="navbar fixed z-10 opacity-80   bg-base-100 shadow-xl  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,7 +70,13 @@ const Navber = () => {
       </div>
 
 <div className='navbar-end'>
-
+    {/* Theme toggle button */}
+    <button
+                    className="text-2xl text-black rounded dark:text-white"
+                    onClick={toggleTheme}
+                >
+                    {theme === 'light' ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+                </button>
 
 {
         user && user?.email ?

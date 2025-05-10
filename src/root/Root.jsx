@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navber from '../components/Navber';
 import Footer from '../components/Footer';
 import { Outlet } from 'react-router-dom';
-import { MdDarkMode, MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+import {  MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
 const Root = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
@@ -18,19 +18,10 @@ const Root = () => {
   
     return (
       <div className=' bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100'>
-          <div className='md:w-11/12 w-full mx-auto'>
-              <header className="p-6 float-end  ">
-        <div className='absolute md:mt-7 mt-6 mr-5'>
-        <button
-          className=" text-3xl text-black rounded dark:text-white"
-          onClick={toggleTheme}
-        >
-           {theme === 'light' ? <MdOutlineDarkMode /> : <MdOutlineLightMode />} 
-        </button>
-        </div>
-      </header>
-      <main className="p-4">
-      <Navber></Navber> 
+          <div className='md:w-12/12 w-full mx-auto'>
+
+      <main className="">
+      <Navber theme={theme} toggleTheme={toggleTheme} />
                  <Outlet></Outlet>
             <Footer></Footer> 
         

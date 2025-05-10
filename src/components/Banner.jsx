@@ -1,11 +1,14 @@
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
+import './styles.css';
 
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+// import required modules
+import { Pagination } from 'swiper/modules';
 
 
 import bgimg1 from '../assets/image/baner1.avif'
@@ -17,54 +20,23 @@ import bgimg4 from '../assets/image/baner4.png'
 
 
 
-import Slide from './Slide';
-
-
 const Banner = () => {
     return (
-      <div className='mb-10 mx-auto'>
-      <Swiper
-        
-        
-        loop={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
+      <div className=' mx-auto mb-14 '>
+     <Swiper
+        spaceBetween={30}
         pagination={{
           clickable: true,
         }}
-        
-        modules={[Autoplay, Pagination, Navigation]}
-        className=''
+        modules={[Pagination]}
+        className="mySwiper"
       >
-        <SwiperSlide>
-          <Slide
-
-            image={bgimg1}
-            
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide
-            image={bgimg2}
-           
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide
-            image={bgimg3}
-            
-          />
-        </SwiperSlide>
-     
-        <SwiperSlide>
-          <Slide
-            image={bgimg4}
-            
-          />
-        </SwiperSlide>
-        </Swiper>
+        <SwiperSlide><img className='' src={bgimg1} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={bgimg2} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={bgimg3} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={bgimg4} alt="" /></SwiperSlide>
+    
+      </Swiper>
 
      
     </div>
