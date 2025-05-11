@@ -109,7 +109,7 @@ const Navber = ({ theme, toggleTheme }) => {
           :
           <a className=" ">
             <FaUserCircle
-              className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success ' /></a>
+              className='rounded-full  lg:mr-4 md:mr-3 w-12 h-10  btn-success dark:btn-secondary ' /></a>
 
       }
 

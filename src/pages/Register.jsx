@@ -70,7 +70,7 @@ const Register = () => {
         <Lottie animationData={registerLottieJson}></Lottie>
         </div>
             <div className="min-h-screen  flex   justify-center items-center   ">
-        <div className="card bg-base-100 mt-8 w-full max-w-sm shrink-0 shadow-2xl rounded-none">
+        <div className="card bg-base-100 dark:bg-gray-900 mt-8 w-full max-w-sm shrink-0 shadow-2xl rounded-none">
 
 
 
@@ -79,7 +79,7 @@ const Register = () => {
                 <hr className=' w-64 mx-auto mt-3' />
                 <div >
                     <label className="label">
-                        <span className="label-text font-bold">Your Name</span>
+                        <span className="label-text font-bold dark:text-white">Your Name</span>
                     </label>
                     <label className=" input input-bordered  flex items-center gap-2">
                         <MdDriveFileRenameOutline />
@@ -95,7 +95,7 @@ const Register = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text font-bold">Email </span>
+                        <span className="label-text font-bold dark:text-white">Email </span>
                     </label>
                     <label className="input input-bordered flex items-center gap-2">
                         <MdEmail />
@@ -109,7 +109,7 @@ const Register = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text font-bold">Password</span>
+                        <span className="label-text font-bold dark:text-white">Password</span>
                     </label>
                     <label className="input input-bordered flex items-center gap-2">
                         <IoKey />
@@ -131,12 +131,12 @@ const Register = () => {
                     }
 
                     <label className="label">
-                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        <a href="#" className="label-text-alt link link-hover dark:text-white">Forgot password?</a>
                     </label>
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text font-bold">Photo URL</span>
+                        <span className="label-text font-bold dark:text-white">Photo URL</span>
                     </label>
                     <label className="input input-bordered flex items-center gap-2">
                         <MdAddPhotoAlternate />
@@ -148,10 +148,10 @@ const Register = () => {
                     </label>
                 </div>
                 <div className="form-control mt-6 mb-5">
-                    <button className="btn btn-primary ">Register</button>
+                    <button className="btn btn-primary dark:text-white ">Register</button>
 
                 </div>
-                <p className="text-center font-Roboto"> Allready Have An Account ?<span className="text-red-500 font-Oswald"><Link to="/login"> Login</Link></span></p>
+                <p className="text-center font-Roboto dark:text-white"> Allready Have An Account ?<span className="text-red-500 font-Oswald"><Link to="/login"> Login</Link></span></p>
 
 
 
