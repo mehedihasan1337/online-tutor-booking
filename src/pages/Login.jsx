@@ -68,13 +68,13 @@ const Login = () => {
 
 
     return (
-        <div className="hero-content dark:text-black justify-between flex-col mt-28 lg:flex-row-reverse w-8/12 mx-auto">
+        <div className="hero-content dark:text-black  justify-between flex-col  lg:flex-row-reverse w-8/12 mx-auto">
 <div className='w-96'>
 <Lottie animationData={loginLottieJson}></Lottie>
 </div>
             
             <div className=" flex  font-Roboto  ">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl  rounded-none">
+        <div className="card bg-base-100 dark:bg-gray-900 w-full max-w-sm shrink-0 shadow-2xl  rounded-none">
             <form onSubmit={handleLogin} className="card-body ">
                 <h1 className='text-center  font-bold text-2xl pt-5 font-Oswald text-blue-700 '>Login your account</h1>
                 <hr className=' w-64 mx-auto mt-3' />
@@ -82,7 +82,7 @@ const Login = () => {
     
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text font-bold">Email address</span>
+                        <span className="label-text font-bold dark:text-white">Email address</span>
                     </label>
                     <label className="input input-bordered flex items-center gap-2">
                         <MdEmail />
@@ -96,7 +96,7 @@ const Login = () => {
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text font-bold">Password</span>
+                        <span className="label-text font-bold dark:text-white">Password</span>
                     </label>
                     <label className="input input-bordered flex items-center gap-2">
                         <IoKey />
@@ -119,15 +119,15 @@ const Login = () => {
 
                     <label className="label">
                         <a href="#"
-                            className="label-text-alt link link-hover"
+                            className="label-text-alt link link-hover dark:text-white"
                         >Forgot password?</a>
                     </label>
                 </div>
                 <div className="form-control mt-6 mb-5">
                     <button className="btn btn-primary ">Login</button>
                 </div>
-                <p className="text-center font-Roboto">Dont’t Have An Account ?<span className="text-red-500 font-Oswald"><Link to="/register"> Register</Link></span></p>
-             <span className='divider'>or</span>
+                <p className="text-center font-Roboto dark:text-white">Dont’t Have An Account ?<span className="text-red-500 font-Oswald"><Link to="/register"> Register</Link></span></p>
+             <span className='divider dark:text-white'>or</span>
                 <div className=' mx-auto '>
 
 <button onClick={handleGoogleLogin} className='btn bg-neutral text-white font-Oswald'><FcGoogle />Login With Google </button>
