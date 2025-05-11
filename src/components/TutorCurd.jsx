@@ -9,7 +9,7 @@ const TutorCurd = ({ tutor }) => {
         
     return (
         <div>
-            <div className='flex border dark:bg-slate-200 dark:text-black  hover:shadow-2xl'>
+            <div className='flex border shadow-lg dark:bg-gray800 dark:text-white  hover:shadow-2xl'>
                 <div className='w-4/12 '>
                        <img referrerPolicy='no-referrer' className='w-full h-full' src={image} alt="" />
                 </div>

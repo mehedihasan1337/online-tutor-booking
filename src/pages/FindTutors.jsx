@@ -50,8 +50,10 @@ const FindTutors = () => {
 
     return (
         
-        <div className='mt-10'>
-
+        <div className=''>
+           <div className='w-full h-[550px] overflow-hidden mb-10'>
+            <img  className="w-full h-full object-cover" src="https://i.ibb.co.com/0y9mKHVV/309791869-499926948813502-3680902081535094608-n.jpg" alt="" />
+          </div>
 
 
 
@@ -106,7 +108,7 @@ const FindTutors = () => {
            
            
            {languages.map((language, index) => (
-  <button onClick={()=>{handleLanguages(language)}} key={index} className={`border ${language===currentLanguage ? "border-green-500":"border-gray-500"} hover:bg-green-300 dark:hover:text-black font-Roboto text-xl w-7/12 p-3`}>
+  <button onClick={()=>{handleLanguages(language)}} key={index} className={`border ${language===currentLanguage ? "":"border-gray-500"} hover:bg-gray-400 dark:hover:text-black font-Roboto text-xl w-7/12 p-3`}>
     {language}
   </button>
 ))}

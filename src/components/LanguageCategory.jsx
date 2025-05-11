@@ -43,9 +43,7 @@ const LanguageCategory = () => {
     <div className=' container px-6 py-10 mx-auto'>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
-        {/* {
-                    tutors.map(tutor=><Category key={tutor._id} tutor={tutor}></Category>)
-                } */}
+      
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2 lg:grid-cols-3 items-center w-8/12 mx-auto  justify-center'>

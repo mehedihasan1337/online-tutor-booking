@@ -76,27 +76,30 @@ const AddTutorials = () => {
 
 
     return (
-        <div className='hero-content justify-between flex-col mt-28 lg:flex-row-reverse mx-auto' >
-
-            <div className=''>
+        <div className='text-black' >
+            <div className='w-full h-[550px] overflow-hidden mb-10  '>
+            <img  className="w-full h-full object-cover" src="https://i.ibb.co.com/fddCxPdp/7dbbb1f84a5bb3dbf0ea3298ff0b1254.png" alt="" />
+          </div>
+           <div className='hero-content justify-between  flex-col lg:flex-row-reverse mx-auto' >
+             <div className=''>
                 <Lottie animationData={informationLottieJson}></Lottie>
             </div>
 
-            <div className='dark:bg-slate-100 '>
-                <h2 className="text-3xl font-bold mt-10 text-center font-Oswald px-2 text-gray-800">Post A Tutor Information</h2>
+            <div className='dark:bg-gray-800 dark:text-white '>
+                <h2 className="text-3xl font-bold mt-10 text-center font-Oswald px-2 text-gray-800 dark:text-white">Post A Tutor Information</h2>
                 <form onSubmit={handleAddTutor} className="card-body">
 
                     {/* name */}
-                    <div className="form-control">
+                    <div className="form-control ">
                         <label className="label">
-                            <span className="label-text font-bold text-xl">Name</span>
+                            <span className="label-text font-bold text-xl dark:text-white">Name</span>
                         </label>
-                        <input defaultValue={user?.displayName} disabled={true} type="text" name='name' className="input text-black input-bordered" required />
+                        <input defaultValue={user?.displayName} disabled={true} type="text" name='name' className="input text-black input-bordered " required />
                     </div>
                     {/* email */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-xl">Email</span>
+                            <span className="label-text font-bold text-xl dark:text-white">Email</span>
                         </label>
                         <input defaultValue={user?.email} disabled={true} type="email" name='email' placeholder="email" className="input input-bordered" required />
                     </div>
@@ -104,7 +107,7 @@ const AddTutorials = () => {
                     {/* Image */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-xl"> Image</span>
+                            <span className="label-text font-bold text-xl dark:text-white"> Image</span>
                         </label>
                         <input type="text" name='image' placeholder="image" className="input input-bordered" required />
                     </div>
@@ -115,7 +118,7 @@ const AddTutorials = () => {
                     {/* language category */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-xl">language</span>
+                            <span className="label-text font-bold text-xl dark:text-white">language</span>
                         </label>
                         <select defaultValue="Select a language" type="text" name='language' className="select select-ghost input input-bordered w-full">
                             <option disabled >Select a language</option>
@@ -138,7 +141,7 @@ const AddTutorials = () => {
                         <div className="form-control">
                             <label className="label">
 
-                                <span className="label-text font-bold text-xl">price</span>
+                                <span className="label-text font-bold text-xl dark:text-white">price</span>
                             </label>
                             <input type="text" name='price' placeholder="price" className="input input-bordered" required />
                         </div>
@@ -157,7 +160,7 @@ const AddTutorials = () => {
                     {/*  description */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-xl"> description</span>
+                            <span className="label-text font-bold text-xl dark:text-white"> description</span>
                         </label>
 
                         <textarea
@@ -171,7 +174,7 @@ const AddTutorials = () => {
                      {/* review */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-xl"> review </span>
+                            <span className="label-text font-bold text-xl dark:text-white"> review </span>
                         </label>
                         <select defaultValue="0" type="text" name='review' className="select select-ghost input input-bordered w-full">
                             <option disabled >0</option>
@@ -192,6 +195,7 @@ const AddTutorials = () => {
                     </div>
                 </form>
             </div>
+           </div>
         </div>
     );
 };
