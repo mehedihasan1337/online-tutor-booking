@@ -20,9 +20,11 @@ const Root = () => {
       <div className=' bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100'>
           <div className='md:w-12/12 w-full mx-auto'>
 
-      <main className="">
-      <Navber theme={theme} toggleTheme={toggleTheme} />
-                 <Outlet></Outlet>
+      <main className="font-Ancizar min-h-screen flex flex-col">
+      <Navber className="" theme={theme} toggleTheme={toggleTheme} />
+                 <div className="flex-grow">
+                  <Outlet></Outlet>
+                 </div>
             <Footer></Footer> 
         
       </main>

@@ -76,16 +76,14 @@ const AddTutorials = () => {
 
 
     return (
-        <div className='text-black' >
-            <div className='w-full h-[550px] overflow-hidden mb-10  '>
-            <img  className="w-full h-full object-cover" src="https://i.ibb.co.com/fddCxPdp/7dbbb1f84a5bb3dbf0ea3298ff0b1254.png" alt="" />
-          </div>
+        <div className='text-black pt-24' >
+          
            <div className='hero-content justify-between  flex-col lg:flex-row-reverse mx-auto' >
              <div className=''>
                 <Lottie animationData={informationLottieJson}></Lottie>
             </div>
 
-            <div className='dark:bg-gray-800 dark:text-white '>
+            <div className='shadow-lg dark:text-white '>
                 <h2 className="text-3xl font-bold mt-10 text-center font-Oswald px-2 text-gray-800 dark:text-white">Post A Tutor Information</h2>
                 <form onSubmit={handleAddTutor} className="card-body">
 

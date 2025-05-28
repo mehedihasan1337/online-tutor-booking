@@ -50,10 +50,8 @@ const FindTutors = () => {
 
     return (
         
-        <div className=''>
-           <div className='w-full h-[550px] overflow-hidden mb-10'>
-            <img  className="w-full h-full object-cover" src="https://i.ibb.co.com/0y9mKHVV/309791869-499926948813502-3680902081535094608-n.jpg" alt="" />
-          </div>
+        <div className='pt-24'>
+          
 
 
 
@@ -120,7 +118,7 @@ const FindTutors = () => {
                
             
         <div className="mt-20">
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-9/12 mx-auto'>
               {filterTutor
                 .map(tutor => (
                   <TutorCurd key={tutor._id} tutor={tutor}></TutorCurd>

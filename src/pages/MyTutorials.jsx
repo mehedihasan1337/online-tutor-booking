@@ -71,14 +71,12 @@ const MyTutorials = () => {
   
 
     return (
-        <div className="overflow-x-auto mb-20 ">
-          <div className='w-full h-[550px] overflow-hidden mb-10'>
-            <img  className="w-full h-full object-cover" src="https://i.ibb.co.com/67sgBfRH/Chat-GPT-Image-May-10-2025-05-57-15-PM.png" alt="" />
-          </div>
-          <button className='mx-2 px-10 py-2 bg-blue-200 dark:bg-blue-600 dark:text-black font-Oswald font-bold rounded-lg'>My Tutor: {tutors.length}</button>
+        <div className="overflow-x-auto mb-20 pt-24 ">
+         
+          <button className='mx-2 px-10 py-2  bg-blue-600 text-white font-Ancizar font-bold rounded-lg'>My Tutor: {tutors.length}</button>
         <table className="table table-xs mx-auto w-11/12">
           <thead>
-            <tr className='font-Oswald text-blue-500 font-bold dark:text-yellow-500'>
+            <tr className='font-Ancizar  text-xl text-blue-600 font-bold '>
               
               <th>Image</th>
               <th>Name</th>
@@ -91,7 +89,7 @@ const MyTutorials = () => {
           </thead>
           <tbody>
              {
-              tutors.map(tutor=> <tr className='font-Roboto dark:text-white text-black font-semibold ' key={tutor._id}>
+              tutors.map(tutor=> <tr className='font-Ancizar  dark:text-white text-black font-semibold ' key={tutor._id}>
                
                 <th><img referrerPolicy='no-referrer' className='w-11 rounded-full' src={tutor.image} alt="" /></th>
                 <td>{tutor.buyer.name}</td>

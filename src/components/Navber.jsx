@@ -19,23 +19,23 @@ const Navber = ({ theme, toggleTheme }) => {
     const links = <>
  {
   user ? <>
-          <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/addTutorials"}>Add Tutor </NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/myTutorials"}>My Tutors </NavLink>
-    <NavLink className="font-Oswald  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutors</NavLink>
+          <NavLink className="font-Ancizar font-semibold text-lg" to={"/"}>Home</NavLink>
+    <NavLink className="font-Ancizar  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
+    <NavLink className="font-Ancizar  font-semibold text-lg" to={"/addTutorials"}>Add Tutor </NavLink>
+    <NavLink className="font-Ancizar  font-semibold text-lg" to={"/myTutorials"}>My Tutors </NavLink>
+    <NavLink className="font-Ancizar  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutors</NavLink>
   </>
   :
   <>
-           <NavLink className="font-Oswald  font-semibold text-lg" to={"/"}>Home</NavLink>
-           <NavLink className="font-Oswald  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
+           <NavLink className="font-Ancizar  font-semibold text-lg" to={"/"}>Home</NavLink>
+           <NavLink className="font-Ancizar  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
   </>
  }
 
   </>
 
   return (
-    <div className="navbar fixed z-10 opacity-80   bg-base-100 dark:bg-black shadow-xl  ">
+    <div className="navbar fixed z-50 opacity-90  bg-base-100 dark:bg-black shadow-xl  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -58,9 +58,9 @@ const Navber = ({ theme, toggleTheme }) => {
             {links}
           </ul>
         </div>
-        <div className='flex items-center'>
+        <div className='flex items-center ml-6'>
          
-        <a className=" font-bold lg:text-3xl md:text-2xl text-sm text-blue-800 dark:text-yellow-400 font-Ga ">Online Tutor Booking </a>
+        <img className='w-14' src="https://i.ibb.co/9kP1NBpY/Create-an-image-of-Online-Tutor-Booking-ar-1-ta-logo-creat-kora-daw.png" alt="" />
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">

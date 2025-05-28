@@ -10,6 +10,7 @@ export default {
       fontFamily:{
         Oswald:["Oswald", "serif"],
         Roboto:["Roboto", "serif"],
+        Ancizar:["Ancizar Sans", "sans-serif"]
         
       }
     },
