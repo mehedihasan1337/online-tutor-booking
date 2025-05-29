@@ -17,20 +17,13 @@ const Navber = ({ theme, toggleTheme }) => {
     })
   }
     const links = <>
- {
-  user ? <>
+
           <NavLink className="font-Ancizar font-semibold text-lg" to={"/"}>Home</NavLink>
     <NavLink className="font-Ancizar  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
     <NavLink className="font-Ancizar  font-semibold text-lg" to={"/addTutorials"}>Add Tutor </NavLink>
     <NavLink className="font-Ancizar  font-semibold text-lg" to={"/myTutorials"}>My Tutors </NavLink>
     <NavLink className="font-Ancizar  font-semibold text-lg" to={"/MyBookedTutor"}>My Booked Tutors</NavLink>
-  </>
-  :
-  <>
-           <NavLink className="font-Ancizar  font-semibold text-lg" to={"/"}>Home</NavLink>
-           <NavLink className="font-Ancizar  font-semibold text-lg" to={"/findTutors/language"}>Find tutors </NavLink>
-  </>
- }
+
 
   </>
 

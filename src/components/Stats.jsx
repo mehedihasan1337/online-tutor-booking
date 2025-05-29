@@ -4,7 +4,7 @@ import { IoMdStar } from 'react-icons/io';
 const Stats = () => {
     return (
         <div>
-            <div className="lg:flex md:flex gap-10 justify-center mb-10  ">
+            <div className="lg:flex md:flex gap-10 justify-center mt-10 ">
   <div className="text-center">
     
     <div className="font-Oswald text-3xl  font-bold">32,000 +</div>
